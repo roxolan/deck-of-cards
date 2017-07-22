@@ -1,4 +1,4 @@
-import { Card, Deck, NUMBER_OF_CARDS } from './deck'
+import { Deck, NUMBER_OF_CARDS } from './deck'
 import times from 'lodash/times'
 
 (() => {
