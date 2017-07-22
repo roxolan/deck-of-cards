@@ -1,8 +1,11 @@
+import map from 'lodash/map'
 import times from 'lodash/times'
 
 const SUITS = ['Club', 'Diamond', 'Heart', 'Spade']
 const RANKS = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King']
 const RANKS_SHORT = ['A', '2', '3', '4', '5', '6', '6', '8', '9', '10', 'J', 'Q', 'K']
+const NUMBER_OF_CARDS = 52
+
 
 
 /**
@@ -37,7 +40,10 @@ export class Deck {
   }
 
   _populate() {
-    this._cards = Array.from(Array(52).keys()).map((i) => new Card(i));
+    // creates array of indexes from 0 to 51:
+    let indexArray = Array.from(Array(NUMBER_OF_CARDS).keys())
+
+    this._cards = map(indexArray, (i) => new Card(i))
   }
 
   hasCards() {

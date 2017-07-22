@@ -1,6 +1,7 @@
+import { Card, Deck } from './deck'
 import times from 'lodash/times'
 
 (() => {
-  console.log('--> initial app call')
+  let deck = new Deck()
 
 })()
