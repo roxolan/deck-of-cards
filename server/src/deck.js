@@ -4,9 +4,7 @@ import times from 'lodash/times'
 const SUITS = ['Club', 'Diamond', 'Heart', 'Spade']
 const RANKS = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King']
 const RANKS_SHORT = ['A', '2', '3', '4', '5', '6', '6', '8', '9', '10', 'J', 'Q', 'K']
-const NUMBER_OF_CARDS = 52
-
-
+export const NUMBER_OF_CARDS = 52
 
 /**
  * Playing card with suite and rank
@@ -23,12 +21,11 @@ export class Card {
   toString() {
     return `${this.suit} ${this.rank}`
   }
-
 }
 
 
 /**
- * Deck of cards
+ * Deck of playing cards
  * @class Deck
  */
 export class Deck {
@@ -54,6 +51,10 @@ export class Deck {
     return this._cards.length;
   }
 
+  /**
+  - returns no value
+  - makes cards in the deck being randomly permuted
+  */
   shuffle() {
     let n = this._cards.length
 
@@ -61,13 +62,13 @@ export class Deck {
       return false;
     }
 
+    // pseudo-random number generator
     times(n, (i) => {
       let r = Math.floor( Math.random() * n )
       let temp = this._cards[i]
       this._cards[i] = this._cards[r]
       this._cards[r] = temp
     })
-    console.log('The deck was shuffled!')
   }
 
   /**
@@ -76,12 +77,6 @@ export class Deck {
   - when caller makes 53rd call to dealOneCard(), no card is dealt
   */
   dealOneCard() {
-    console.log('cards: ', this._cards.length)
     return this.hasCards() ? this._cards.pop() : null;
   }
-
 }
-
-// let deck01 = new Deck()
-// deck01.shuffle()
-// console.log(deck01)
