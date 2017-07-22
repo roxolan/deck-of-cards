@@ -20,6 +20,7 @@
     "clean": "npm cache clean --force && npm run rimraf dist",
     "dev": "webpack --progress --colors --watch -d",
     "lint": "standard",
+    "start": "node ./dist/bundle.js",
     "test": "mocha --compilers js:babel-core/register server/test/deckSpec.js -w --reporter nyan",
     "webpack": "webpack-dev-server --config webpack.config.js"
   },
